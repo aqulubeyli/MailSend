@@ -111,14 +111,16 @@ if __name__ == "__main__":
     print(data_email)
 
    
-    while size > 0:
+    #while size > 0:
 
-        receiver_email = ",".join(map(str, data_email[size - 1]))
+        #receiver_email = ",".join(map(str, data_email[size - 1]))
 
         # send_email// receiver_email// bcc// smtp// port
-        send_email(sender_email, receiver_email, bcc_address, subject, smtp_server, port, image_path)
-        print(receiver_email)
-        size-=1 
+        # send_email(sender_email, receiver_email, bcc_address, subject, smtp_server, port, image_path)
+        say, adlar = take_image_name_and_size()
+        print(say, adlar)
+        #print(receiver_email)
+        #size-=1 
        
     
   
