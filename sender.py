@@ -40,6 +40,9 @@ def take_image_name_and_size():
     size = len(files_list)
     return size, files_list
 
+# def random_function():
+
+
 
 
 def send_email(sender_email, receiver_email, bcc, subject, smtp_server, port, attack_file):
@@ -67,6 +70,8 @@ def send_email(sender_email, receiver_email, bcc, subject, smtp_server, port, at
     fp = open(attack_file, 'rb') #Read image 
     msgImage = MIMEImage(fp.read())
     fp.close()
+
+
 
     # Define the image's ID as referenced above
     msgImage.add_header('Content-ID', '<image1>')
@@ -102,22 +107,25 @@ if __name__ == "__main__":
     image_path = details_dict['image_path']
     email_list_path = details_dict['email_list_path']
 
-    print(email_list_path)
+    # print(email_list_path)
 
 
     size, data_email = get_email_list(email_list_path)
 
-    print(size)
-    print(data_email)
+    # print(size)
+    # print(data_email)
 
    
     while size > 0:
 
-        receiver_email = ",".join(map(str, data_email[size - 1]))
+        # receiver_email = ",".join(map(str, data_email[size - 1]))
 
         # send_email// receiver_email// bcc// smtp// port
-        send_email(sender_email, receiver_email, bcc_address, subject, smtp_server, port, image_path)
-        print(receiver_email)
+        # send_email(sender_email, receiver_email, bcc_address, subject, smtp_server, port, image_path)
+        # print(receiver_email)
+        size_img, file_list = take_image_name_and_size()
+        print(size_img,'img list')
+        print(file_list)
         size-=1 
        
     
