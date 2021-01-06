@@ -44,10 +44,10 @@ def take_image_name_and_size():
 # reiteration - повтарение
 def random_function(reiteration):
     i = 1
-    while i < reiteration+1:
+    while i < reiteration+5:
         
         random_num = random.randrange(0,reiteration,1)
-        print('daxili-->', random_num, ' reit', reiteration)
+        # print('daxili-->', random_num, ' reit', reiteration+2)
         i+=1
     return random_num
     
@@ -121,27 +121,31 @@ if __name__ == "__main__":
     # print(email_list_path)
 
 
-    size_t, data_email = get_email_list(email_list_path)
+    size, data_email = get_email_list(email_list_path)
 
-    print('email size ->',size_t)
+    # print('email size ->',size_t)
     # print(data_email)
 
-    size =10
+    # size =10
 
     while size > 0:
 
-        # receiver_email = ",".join(map(str, data_email[size - 1]))
+        receiver_email = ",".join(map(str, data_email[size - 1]))
+
+        size_img, file_list = take_image_name_and_size()
+
+        m = random_function(size_img)
 
         # send_email// receiver_email// bcc// smtp// port
-        # send_email(sender_email, receiver_email, bcc_address, subject, smtp_server, port, image_path)
-        # print(receiver_email)
-        size_img, file_list = take_image_name_and_size()
+        send_email(sender_email, receiver_email, bcc_address, subject, smtp_server, port, 'img/'+file_list[m])
+        print(receiver_email)
+        
         #print(size_img,'img list')
         #print(file_list)
 
-        m = random_function(size_img)
-        print('uq',m)
-        #print(file_list[m])
+        
+        # print('uq',m)
+        # print(file_list[m])
         size-=1 
        
     
