@@ -2,7 +2,7 @@ import smtplib, ssl
 import configparser
 import os
 import csv
-
+import random
 
 from email import encoders
 from email.mime.multipart import MIMEMultipart
@@ -40,8 +40,19 @@ def take_image_name_and_size():
     size = len(files_list)
     return size, files_list
 
-# def random_function():
 
+# reiteration - повтарение
+def random_function(reiteration):
+    i = 1
+    while i < reiteration+1:
+        
+        random_num = random.randrange(0,reiteration,1)
+        print('daxili-->', random_num, ' reit', reiteration)
+        i+=1
+    return random_num
+    
+
+    
 
 
 
@@ -110,12 +121,13 @@ if __name__ == "__main__":
     # print(email_list_path)
 
 
-    size, data_email = get_email_list(email_list_path)
+    size_t, data_email = get_email_list(email_list_path)
 
-    # print(size)
+    print('email size ->',size_t)
     # print(data_email)
 
-   
+    size =10
+
     while size > 0:
 
         # receiver_email = ",".join(map(str, data_email[size - 1]))
@@ -124,8 +136,12 @@ if __name__ == "__main__":
         # send_email(sender_email, receiver_email, bcc_address, subject, smtp_server, port, image_path)
         # print(receiver_email)
         size_img, file_list = take_image_name_and_size()
-        print(size_img,'img list')
-        print(file_list)
+        #print(size_img,'img list')
+        #print(file_list)
+
+        m = random_function(size_img)
+        print('uq',m)
+        #print(file_list[m])
         size-=1 
        
     
